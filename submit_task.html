@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Mind - Submit Task</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Pink Mind</div>
+        <div class="title">Submit Your Task</div>
+        <a href="/" class="nav-btn">Home</a>
+    </header>
+
+    <div class="submission-container">
+        <div class="submission-card">
+            <h2>Upload Your Assignment</h2>
+            <p>Please fill in your details and upload your file.</p>
+
+            <form action="/submit-task" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label for="student-name">Your Name (إسمك ثلاثي)</label>
+                    <input type="text" id="student-name" name="student_name" placeholder="e.g., Fatma Ahmed Ali" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="group-name">Your Group (الجروب / القسم)</label>
+                    <input type="text" id="group-name" name="group_name" placeholder="e.g. Graphic Design, ..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-name">Task Title</label>
+                    <input type="text" id="task-name" name="task_name" placeholder="e.g., Task 1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-file">Choose File</label>
+                    <input type="file" id="task-file" name="task_file" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Add any comments here..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Task</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
