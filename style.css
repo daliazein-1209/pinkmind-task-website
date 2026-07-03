@@ -1,0 +1,248 @@
+/* ==========================================
+   إعادة تعيين الهوامش الأساسية (Reset)
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* تمنع خروج العناصر عن الحجم المحدد */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   تنسيق الشريط العلوي (Navbar)
+   ========================================== */
+.navbar {
+    background: linear-gradient(to right, #e8a2bd, #cf9ed6); /* التدرج البينك والموف */
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 70px; /* تحديد ارتفاع ثابت ومريح للـ Navbar */
+}
+
+.navbar .logo {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #000000;
+    font-weight: bold;
+}
+
+.navbar .title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2rem;
+    color: #000000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* لتوسيط العنوان بالظبط في النص */
+}
+
+/* ==========================================
+   تنسيق شبكة الكروت (Grid Container)
+   ========================================== */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* تجبر الكروت تترص 4 في كل صف بالظبط */
+    gap: 25px; /* المسافة والـ Spacing الفاصل بين كل كارت والتاني */
+    padding: 40px 50px; /* هوامش داخلية مريحة للعين حول الشبكة */
+    max-width: 1400px;
+    margin: 0 auto; /* لتوسيط الشبكة كلها في منتصف الشاشة */
+}
+
+/* ==========================================
+   تنسيق روابط الكروت (Card Links)
+   ========================================== */
+.card-link {
+    text-decoration: none; /* إلغاء الخط الأزرق الافتراضي للروابط */
+    color: inherit;
+    display: block;
+}
+
+/* ==========================================
+   تنسيق الكارت نفسه (Card)
+   ========================================== */
+.card {
+    background-color: #e0e0e0; /* الجزء الرمادي السفلي المخصص للنص */
+    border-radius: 6px; /* انحناء بسيط وحاد للحواف مثل فيجما */
+    overflow: hidden; /* لإجبار الصور على ألا تخرج خارج حواف الكارت المنحنية */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* ظل خفيف وناعم */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* حركة ناعمة عند الـ Hover */
+}
+
+/* ضبط حجم وتناسب الصور داخل الكارت */
+.card img {
+    width: 100%;
+    height: 160px; /* تحديد ارتفاع ثابت ومناسب جداً للصور البينك */
+    object-fit: cover; /* تجعل الصورة تملأ النصف العلوي للزر بالكامل بدون تشويه لأبعادها */
+}
+
+/* تنسيق منطقة النص الأسفل */
+.card-text {
+    padding: 15px 12px;
+    font-family: 'Great Vibes', cursive; /* استخدام الخط الـ Cursive اللطيف */
+    font-size: 1.3rem;
+    color: #000000;
+    text-align: left;
+    background-color: #e0e0e0; /* نفس الرمادي الفاتح اللي في التصميم */
+    line-height: 1.3;
+}
+
+/* تأثير تفاعلي رائع عند تمرير الماوس فوق الكارت */
+.card-link:hover .card {
+    transform: translateY(-6px); /* رفع الكارت لأعلى قليلاً لإحساس الضغط */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); /* زيادة قوة الظل عند التفاعل */
+    cursor: pointer;
+}
+
+/* ==========================================
+   تجاوب التصميم مع الشاشات المختلفة (Responsive)
+   ========================================== */
+@media (max-width: 1100px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* يظهر كارتين في الصف على الشاشات المتوسطة */
+        padding: 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* يظهر كارت واحد عريض لكل صف على شاشات الموبايل */
+        padding: 20px;
+        gap: 20px;
+    }
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        gap: 10px;
+    }
+    .navbar .title {
+        position: static;
+        transform: none;
+        font-size: 1.6rem;
+    }
+}
+/* ==========================================
+   تنسيق صفحة تسليم التاسك (Submission Form)
+   ========================================== */
+.submission-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: calc(100vh - 70px);
+    background-color: #fafafa;
+}
+
+.submission-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 40px;
+    width: 100%;
+    max-width: 550px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.submission-card h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #000000;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.submission-card p {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* تنسيق الحقول */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #e8a2bd; /* ينور بينك لما تضغطي عليه */
+}
+
+/* حقل رفع الملفات */
+.form-group input[type="file"] {
+    padding: 10px;
+    border: 1px dashed #e8a2bd;
+    background-color: #fff9fb;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* زر الإرسال البينك الموف */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(to right, #e8a2bd, #cf9ed6);
+    border: none;
+    border-radius: 4px;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+}
+/* ستايل زرار التنقل في الشريط العلوي */
+.navbar .nav-btn {
+    position: absolute;
+    right: 30px; /* بيخليه على اليمين خالص في الـ Navbar */
+    background-color: #ffffff; /* لون الخلفية أبيض عشان ينطق مع البينك */
+    color: #cf9ed6; /* لون الكتابة موف فاتح من نفس درجات الـ Gradient */
+    text-decoration: none; /* إلغاء الخط اللي تحت الكلام */
+    padding: 8px 18px;
+    border-radius: 20px; /* حواف دائرية ناعمة وشكل كيرفي شيك */
+    font-size: 0.95rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+}
+
+/* تأثير عند مرور الماوس على الزرار */
+.navbar .nav-btn:hover {
+    background-color: #000000; /* بيتحول للون الأسود زي اللوجو والعنوان عند الـ Hover */
+    color: #ffffff; /* الخط بيتحول لأبيض */
+    transform: scale(1.05); /* بيكبر سنة بسيطة جداً تفاعلية */
+    cursor: pointer;
+}
